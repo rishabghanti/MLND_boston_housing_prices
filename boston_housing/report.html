@@ -11802,7 +11802,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11832,20 +11832,6 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>C:\Users\risha\Anaconda2\lib\site-packages\sklearn\cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
-  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
-C:\Users\risha\Anaconda2\lib\site-packages\sklearn\learning_curve.py:22: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
-  DeprecationWarning)
-</pre>
-</div>
-</div>
 
 <div class="output_area">
 
@@ -11894,19 +11880,19 @@ C:\Users\risha\Anaconda2\lib\site-packages\sklearn\learning_curve.py:22: Depreca
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">();</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">);</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">();</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">);</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">();</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">);</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">();</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">);</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">();</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">);</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11937,7 +11923,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -12198,8 +12184,13 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Splitting a data set into training and testing sets allows us to train the model and also test it using the same data set. It acts like a level field and allows us to accurately judge the efficiency of the model being trained. Model fit is very important for it to perform well. An underfitting model can be improved by increasing the number of points in the training data set while an overfitting model can be improved by decreasing the number of points in the training data set.</p>
-<p>A model is said to be a good fit for the data set when there are appropriate number of data points in the training set such that the model is trained well and it also performs well on the testing data set. Hence a perfect split between the training and testing data is necessary to derive an efficient model.</p>
+<p>Benefits of splitting data into training and testing data set are as follows :</p>
+<ol>
+<li><p>It helps test the model on an independent data set.</p>
+</li>
+<li><p>It helps detect if a model is overfitting.</p>
+</li>
+</ol>
 
 </div>
 </div>
@@ -13762,7 +13753,7 @@ pGeMMSZo/D8mVl9UUC3/ugAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>When the model is trained with a maximum depth of 1, I think the model suffers from high bias (underfitting model). As can be seen from the graph above, both the training curve and the testing curve have a low score of close to 0.4. This case will occur when the model is very simple and is not able to perform well on the training nor the testing data.</p>
-<p>When the model is trained with a maximum depth of 10, the model suffers from high variance. The score of the training curve is a perfect 1 while the score of the testing curve is a low 0.7. This is because the model has been trained with a large number of training points and it has memorized the outputs from them. Hence it is not able to perform well on the new testing data. This is an overfiting model.</p>
+<p>When the model is trained with a maximum depth of 10, the model suffers from high variance. The score of the training curve is a perfect 1 while the score of the testing curve is a low 0.7. This is because the model has a high complexity, i.e. it has been trained by a large number of features. Hence it is not able to perform well on the new testing data. This is an example  overfiting model.</p>
 
 </div>
 </div>
@@ -13844,7 +13835,7 @@ pGeMMSZo/D8mVl9UUC3/ugAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A general way of training a model is to split the data into training and testing sets. By doing this a large chunk of data is thrown away as testing data which could be used to train the model. K-fold cross validation is a training technique that does not allow this to happen. In this technique the data is divided into 'k' (k is an integer) buckets. The model is trained 'k' times with each time a different bucket being used as the testing set.</p>
-<p>The main draw back of the grid search is that the data set is divided into training and testing sets. Thus some precious data is thrown away and cannot be used for training the model. The benefit of using the k-fold CV technique is that by dividing the data into k buckets all the data is used for training the model and no data will be lost. This will allow the model to be trained better.</p>
+<p>In grid search there is a risk of overfitting the validation setsince it is used many time to evaluate performance of different points on the grid. Thus, with more and more grid points, we are more and more likely to find a point that is good only by chance. With the k-fold CV. The problem of overfitting is mitigated as the validation set is larger since computation is done k-time.</p>
 
 </div>
 </div>
